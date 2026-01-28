@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الدحيح المختصر | بوابة المعرفة السريعة</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <style>
+        .active-section {
+            display: block !important;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .nav-active {
+            border-bottom: 3px solid #4f46e5;
+            color: #4f46e5;
+            font-weight: 600;
+        }
+        .book-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans text-gray-800">
+    <!-- Header/Navigation -->
+    <header class="bg-white shadow-sm sticky top-0 z-10">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2 space-x-reverse">
+                <i data-feather="book-open" class="text-indigo-600"></i>
+                <h1 class="text-xl font-bold text-indigo-700">الدحيح المختصر</h1>
+            </div>
+            <nav class="hidden md:flex space-x-6 space-x-reverse">
+                <a href="#" onclick="showSection('home')" class="nav-item py-2 px-1 text-gray-600 hover:text-indigo-600 transition">الرئيسية</a>
+                <a href="#" onclick="showSection('books')" class="nav-item py-2 px-1 text-gray-600 hover:text-indigo-600 transition">الكتب</a>
+                <a href="#" onclick="showSection('reviews')" class="nav-item py-2 px-1 text-gray-600 hover:text-indigo-600 transition">المراجعات</a>
+                <a href="#" onclick="showSection('telegram')" class="nav-item py-2 px-1 text-gray-600 hover:text-indigo-600 transition">تيليجرام</a>
+                <a href="#" onclick="showSection('contact')" class="nav-item py-2 px-1 text-gray-600 hover:text-indigo-600 transition">تواصل معنا</a>
+            </nav>
+            <button class="md:hidden focus:outline-none" onclick="toggleMobileMenu()">
+                <i data-feather="menu" class="text-gray-600"></i>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-t">
+            <div class="container mx-auto px-4 py-2 flex flex-col space-y-2">
+                <a href="#" onclick="showSection('home')" class="mobile-nav-item py-2 px-1 text-gray-600 hover:text-indigo-600 transition">الرئيسية</a>
+                <a href="#" onclick="showSection('books')" class="mobile-nav-item py-2 px-1 text-gray-600 hover:text-indigo-600 transition">الكتب</a>
+                <a href="#" onclick="showSection('reviews')" class="mobile-nav-item py-2 px-1 text-gray-600 hover:text-indigo-600 transition">المراجعات</a>
+                <a href="#" onclick="showSection('telegram')" class="mobile-nav-item py-2 px-1 text-gray-600 hover:text-indigo-600 transition">تيليجرام</a>
+                <a href="#" onclick="showSection('contact')" class="mobile-nav-item py-2 px-1 text-gray-600 hover:text-indigo-600 transition">تواصل معنا</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Sections -->
+    <main class="container mx-auto px-4 py-8">
+        <!-- Home Section -->
+        <section id="home" class="active-section">
+            <div class="flex flex-col md:flex-row items-center gap-8">
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl font-bold text-indigo-700 mb-4">مرحبًا بكم في الدحيح المختصر</h2>
+                    <p class="text-lg text-gray-600 mb-6">
+                        بوابة المعرفة السريعة التي تقدم لك خلاصة الكتب والمراجعات الدراسية بطريقة سهلة ومبسطة. نوفر لك أفضل المحتويات التعليمية لتطوير مهاراتك ومعارفك.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <button onclick="showSection('books')" class="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-2 rounded-lg transition">تصفح الكتب</button>
+                        <button onclick="showSection('reviews')" class="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-lg transition">المراجعات</button>
+                        <a href="#" onclick="showSection('telegram')" class="bg-purple-600 hover:bg-purple-700 text-white px-6 py-2 rounded-lg transition flex items-center gap-2">
+                            <i data-feather="send" class="w-4 h-4"></i>
+                            انضم لقناتنا
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/2">
+                    <img src="http://static.photos/education/640x360/1" alt="التعليم" class="rounded-lg shadow-md w-full">
+                </div>
+            </div>
+        </section>
+
+        <!-- Books Section -->
+        <section id="books" class="hidden">
+            <h2 class="text-3xl font-bold text-indigo-700 mb-8 text-center">مكتبتنا الرقمية</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Book 1 -->
+                <div class="book-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
+                    <img src="ooss.jpg" alt="تأسيس في انجليزي " class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="font-bold text-xl text-gray-800 mb-2">تأسيسفيانجليزي</h3>
+                        <p class="text-gray-600 mb-4">كتاب تأسيس في اللغة الإنجليزية
+كتاب بسيط ومفيد لتعلم أساسيات اللغة الإنجليزية من الصفر، يشمل الحروف، النطق الصحيح، الكلمات الأساسية، والقواعد المبسطة، مع أمثلة وتدريبات تساعدك على الفهم والتطبيق بسهولة.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500"><i data-feather="file-text" class="w-4 h-4 inline"></i> 75 صفحة</span>
+             
+                            <a href="oooo.pdf" download
+   class="bg-indigo-100 text-indigo-700 hover:bg-indigo-200 px-4 py-1 rounded-full text-sm transition">
+    تحميل
+</a>
+                        </div>
+                    </div>
+                </div>
+                
+       
+        </section>
+
+        <!-- Reviews Section -->
+        <section id="reviews" class="hidden">
+            <h2 class="text-3xl font-bold text-indigo-700 mb-8 text-center">مراجعات دراسية</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Review 1 -->
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-green-100 p-2 rounded-full mr-3">
+                            <i data-feather="bookmark" class="text-green-600"></i>
+                        </div>
+                        <h3 class="font-bold text-lg text-gray-800">مراجعة الرياضيات</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">ملخص شامل لجميع مفاهيم الرياضيات الأساسية مع أمثلة تطبيقية وتمارين محلولة.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-500"><i data-feather="clock" class="w-4 h-4 inline"></i> 45 صفحة</span>
+                        <button class="bg-green-100 text-green-700 hover:bg-green-200 px-4 py-1 rounded-full text-sm transition">تحميل</button>
+                    </div>
+                </div> 
+        </section>
+
+        <!-- Telegram Section -->
+        <section id="telegram" class="hidden">
+            <div class="bg-gradient-to-r from-purple-500 to-indigo-600 rounded-xl p-8 text-white">
+                <div class="flex flex-col md:flex-row items-center gap-8">
+                    <div class="md:w-1/2">
+                        <h2 class="text-3xl font-bold mb-4">انضم إلى قناتنا على تيليجرام</h2>
+                        <p class="text-lg mb-6 opacity-90">
+                            احصل على آخر الكتب والمراجعات مباشرة على هاتفك. نوفر محتوى حصريًا لأعضاء القناة بالإضافة إلى إشعارات فورية بكل جديد.
+                        </p>
+                        <ul class="space-y-3 mb-6">
+                            <li class="flex items-center">
+                                <i data-feather="check-circle" class="mr-2"></i>
+                                <span>محتوى حصري لأعضاء القناة</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i data-feather="check-circle" class="mr-2"></i>
+                                <span>إشعارات فورية بكل جديد</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i data-feather="check-circle" class="mr-2"></i>
+                                <span>تفاعل مباشر مع فريق العمل</span>
+                            </li>
+                        </ul>
+                        <a href="https://t.me/osmAn5788" target="_blank" class="bg-white text-purple-600 hover:bg-gray-100 px-6 py-3 rounded-lg font-medium inline-flex items-center gap-2 transition">
+                            <i data-feather="send" class="w-5 h-5"></i>
+                            انضم الآن
+                        </a>
+                    </div>
+                    <div class="md:w-1/2">
+                        <img src="oomm.png" alt="تيليجرام" class="rounded-lg shadow-md w-full">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="hidden">
+            <h2 class="text-3xl font-bold text-indigo-700 mb-8 text-center">تواصل معنا</h2>
+            <div class="flex flex-col md:flex-row gap-8">
+                <div class="md:w-1/2 bg-white rounded-lg shadow-md p-6">
+                    <h3 class="font-bold text-xl text-gray-800 mb-4">أرسل لنا رسالة</h3>
+                    <form class="space-y-4">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700 mb-1">الاسم</label>
+                            <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">البريد الإلكتروني</label>
+                            <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-1">الرسالة</label>
+                            <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"></textarea>
+                        </div>
+                        <button type="submit" class="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-2 rounded-lg transition w-full">إرسال</button>
+                    </form>
+                </div>
+                <div class="md:w-1/2 bg-white rounded-lg shadow-md p-6">
+                    <h3 class="font-bold text-xl text-gray-800 mb-4">وسائل التواصل الأخرى</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="bg-indigo-100 p-3 rounded-full mr-3">
+                                <i data-feather="send" class="text-indigo-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-gray-800">تيليجرام</h4>
+                                <p class="text-gray-600">https://t.me/osmAn5788</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-full mr-3">
+                                <i data-feather="mail" class="text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-gray-800">البريد الإلكتروني</h4>
+                                <p class="text-gray-600">contact@dahih.com</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-green-100 p-3 rounded-full mr-3">
+                                <i data-feather="message-square" class="text-green-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-gray-800">الدعم الفني</h4>
+                                <p class="text-gray-600">متاح من الساعة 9 صباحًا حتى 5 مساءً</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-8">
+                        <h4 class="font-medium text-gray-800 mb-2">تابعنا على وسائل التواصل الاجتماعي</h4>
+                        <div class="flex space-x-4 space-x-reverse">
+                            <a href="#" class="bg-gray-100 hover:bg-gray-200 p-3 rounded-full transition">
+                                <i data-feather="twitter" class="text-blue-400"></i>
+                            </a>
+                            <a href="#" class="bg-gray-100 hover:bg-gray-200 p-3 rounded-full transition">
+                                <i data-feather="instagram" class="text-pink-500"></i>
+                            </a>
+                            <a href="#" class="bg-gray-100 hover:bg-gray-200 p-3 rounded-full transition">
+                                <i data-feather="facebook" class="text-blue-600"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <div class="flex items-center space-x-2 space-x-reverse">
+                        <i data-feather="book-open" class="text-indigo-300"></i>
+                        <h2 class="text-xl font-bold text-indigo-300">الدحيح المختصر</h2>
+                    </div>
+                    <p class="text-gray-400 mt-2">بوابة المعرفة السريعة لتطوير مهاراتك</p>
+                </div>
+                <div class="flex flex-col md:flex-row md:space-x-8 md:space-x-reverse space-y-4 md:space-y-0">
+                    <div>
+                        <h3 class="font-medium mb-2">روابط سريعة</h3>
+                        <ul class="space-y-2">
+                            <li><a href="#" onclick="showSection('home')" class="text-gray-400 hover:text-white transition">الرئيسية</a></li>
+                            <li><a href="#" onclick="showSection('books')" class="text-gray-400 hover:text-white transition">الكتب</a></li>
+                            <li><a href="#" onclick="showSection('reviews')" class="text-gray-400 hover:text-white transition">المراجعات</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="font-medium mb-2">المساعدة</h3>
+                        <ul class="space-y-2">
+                            <li><a href="#" onclick="showSection('telegram')" class="text-gray-400 hover:text-white transition">قناة تيليجرام</a></li>
+                            <li><a href="#" onclick="showSection('contact')" class="text-gray-400 hover:text-white transition">تواصل معنا</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition">الأسئلة الشائعة</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-6 text-center text-gray-400">
+                <p>© 2023 الدحيح المختصر. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Show section function
+        function showSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('section').forEach(section => {
+                section.classList.add('hidden');
+                section.classList.remove('active-section');
+            });
+            
+            // Show selected section
+            document.getElementById(sectionId).classList.remove('hidden');
+            document.getElementById(sectionId).classList.add('active-section');
+            
+            // Update active nav item
+            document.querySelectorAll('.nav-item, .mobile-nav-item').forEach(item => {
+                item.classList.remove('nav-active');
+            });
+            
+            // Close mobile menu if open
+            document.getElementById('mobileMenu').classList.add('hidden');
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+        
+        // Toggle mobile menu
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+        
+        // Set home as default active section
+        document.addEventListener('DOMContentLoaded', function() {
+            showSection('home');
+            feather.replace();
+        });
+    </script>
+    <script>feather.replace();</script>
+</body>
+</html>
